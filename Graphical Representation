@@ -1,0 +1,71 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class GradeTrackerGUI extends JFrame {
+    private JTextField nameField;
+    private JTextField[] markFields;
+    private JTextArea resultArea;
+
+    public GradeTrackerGUI() {
+        setTitle("Student Grade Tracker");
+        setSize(400, 400);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLayout(new FlowLayout());
+
+        add(new JLabel("Student Name:"));
+        nameField = new JTextField(20);
+        add(nameField);
+
+        markFields = new JTextField[5];
+        for (int i = 0; i < 5; i++) {
+            add(new JLabel("Subject " + (i + 1) + " Marks:"));
+            markFields[i] = new JTextField(5);
+            add(markFields[i]);
+        }
+
+        JButton calcButton = new JButton("Calculate Grade");
+        add(calcButton);
+
+        resultArea = new JTextArea(10, 30);
+        resultArea.setEditable(false);
+        add(new JScrollPane(resultArea));
+
+        calcButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                calculateGrade();
+            }
+        });
+
+        setVisible(true);
+    }
+
+    private void calculateGrade() {
+        String name = nameField.getText();
+        int total = 0;
+        for (JTextField field : markFields) {
+            try {
+                total += Integer.parseInt(field.getText());
+            } catch (NumberFormatException ex) {
+                resultArea.setText("⚠️ Please enter valid marks.");
+                return;
+            }
+        }
+
+        double average = total / 5.0;
+        char grade;
+        if (average >= 90) grade = 'A';
+        else if (average >= 80) grade = 'B';
+        else if (average >= 70) grade = 'C';
+        else if (average >= 60) grade = 'D';
+        else grade = 'F';
+
+        resultArea.setText("📋 Student: " + name +
+                           "\nAverage: " + average +
+                           "\nGrade: " + grade);
+    }
+
+    public static void main(String[] args) {
+        new GradeTrackerGUI();
+    }
+}
