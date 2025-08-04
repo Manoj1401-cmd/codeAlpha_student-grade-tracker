@@ -1,0 +1,42 @@
+import java.util.HashMap;
+
+public class Student {
+    private String name;
+    private HashMap<String, Integer> subjectMarks;
+    private double overallAverage;
+
+    public Student(String name) {
+        this.name = name;
+        this.subjectMarks = new HashMap<>();
+    }
+
+    public void addSubjectMark(String subject, int mark) {
+        subjectMarks.put(subject, mark);
+        calculateAverage();
+    }
+
+    private void calculateAverage() {
+        int total = 0;
+        for (int mark : subjectMarks.values()) {
+            total += mark;
+        }
+        overallAverage = total / (double) subjectMarks.size();
+    }
+
+    public void displayReport() {
+        System.out.println("\n📋 " + name + "'s Report:");
+        for (String subject : subjectMarks.keySet()) {
+            System.out.println(subject + ": " + subjectMarks.get(subject));
+        }
+        System.out.printf("Overall Average: %.2f\n", overallAverage);
+        System.out.println("----------------------------");
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getAverage() {
+        return overallAverage;
+    }
+}
