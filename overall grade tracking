@@ -6,7 +6,7 @@ public class GradeTracker {
         Scanner sc = new Scanner(System.in);
         ArrayList<Student> students = new ArrayList<>();
 
-        System.out.println("🎓 Welcome to Student Grade Tracker");
+        System.out.println("Welcome to Student Grade Tracker");
 
         while (true) {
             System.out.println("\n1. Add Student\n2. View All Students\n3. Exit");
