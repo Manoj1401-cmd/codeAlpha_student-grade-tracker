@@ -60,7 +60,7 @@ public class GradeTrackerGUI extends JFrame {
         else if (average >= 60) grade = 'D';
         else grade = 'F';
 
-        resultArea.setText("📋 Student: " + name +
+        resultArea.setText("Student: " + name +
                            "\nAverage: " + average +
                            "\nGrade: " + grade);
     }
