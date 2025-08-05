@@ -47,7 +47,7 @@ public class GradeTrackerGUI extends JFrame {
             try {
                 total += Integer.parseInt(field.getText());
             } catch (NumberFormatException ex) {
-                resultArea.setText("⚠️ Please enter valid marks.");
+                resultArea.setText("!Please enter valid marks.");
                 return;
             }
         }
