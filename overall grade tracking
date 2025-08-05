@@ -36,10 +36,10 @@ public class GradeTracker {
                     }
                     break;
                 case 3:
-                    System.out.println("👋 Exiting Grade Tracker. Goodbye!");
+                    System.out.println("!Exiting Grade Tracker. Goodbye!");
                     return;
                 default:
-                    System.out.println("⚠️ Invalid choice. Try again.");
+                    System.out.println("!Invalid choice. Try again.");
             }
         }
     }
