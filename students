@@ -33,6 +33,6 @@ public class Student {
         for (int mark : marks) System.out.print(mark + " ");
         System.out.println("\nAverage: " + average);
         System.out.println("Grade: " + grade);
-        System.out.println("-------------------------");
+        System.out.println("");
     }
 }
