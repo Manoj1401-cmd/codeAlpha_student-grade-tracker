@@ -24,7 +24,7 @@ public class Student {
     }
 
     public void displayReport() {
-        System.out.println("\n📋 " + name + "'s Report:");
+        System.out.println("\n" + name + "'s Report:");
         for (String subject : subjectMarks.keySet()) {
             System.out.println(subject + ": " + subjectMarks.get(subject));
         }
